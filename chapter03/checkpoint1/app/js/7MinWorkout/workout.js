@@ -273,3 +273,12 @@ angular.module('7minWorkout')
 
       init();
   }]);
+
+angular.module('7minWorkout')
+    .controller('WorkoutAudioController', ['$scope', '$timeout',
+        function ($scope, $timeout) {
+            $scope.exercisesAudio = [];
+            var init = function () {
+            }
+            init();
+        }]);
