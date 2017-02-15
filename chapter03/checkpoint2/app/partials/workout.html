@@ -1,9 +1,9 @@
-<div class="row workout-app-container">
+<div class="row workout-app-container" tabindex="1" ng-keypress="onKeyPressed($event)">
     <div id="description-panel" class="col-sm-2" ng-include="'partials/description-panel.html'">
     </div>
-    <div id="exercise-pane" class="col-sm-7" ng-mouseenter ="showPauseOverlay=true" ng-mouseleave="showPauseOverlay=false">
-        <div id="pause-overlay" ng-click="pauseResumeToggle()" ngshow="showPauseOverlay" >
-          <span class="glyphicon glyphicon-pause pause absolute-center" ng-class="{'glyphicon-pause' : !workoutPaused, 'glyphicon-play' :workoutPaused}"></span>
+    <div id="exercise-pane" class="col-sm-7">
+        <div id="pause-overlay" ng-click="pauseResumeToggle()" ngshow="showPauseOverlay">
+            <span class="glyphicon glyphicon-pause pause absolute-center" ng-class="{'glyphicon-pause' : !workoutPaused, 'glyphicon-play' :workoutPaused}"></span>
         </div>
         <span ng-controller="WorkoutAudioController">
             <audio media-player="ticksAudio" loop autoplay src="content/tick10s.mp3"></audio>
@@ -27,18 +27,6 @@
             </div>
         </div>
     </div>
-    <div id="video-panel" class="col-sm-3" ng-include="'video-panel.html'">
+    <div id="video-panel" class="col-sm-3" ng-include="'partials/video-panel.html'">
     </div>
-    <script type="text/ng-template" id="video-panel.html">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">Videos</h3>
-            </div>
-            <div class="panel-body">
-                <div ng-repeat="video in currentExercise.details.related.videos">
-                    <iframe width="100%" height="220" src="{{video}}" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </script>
 </div>
